@@ -1,5 +1,8 @@
 import pyautogui as myGui
 
+#input position data from position.py into "rockCords" x cords first, then y cords
+rockCords = [1775,499]
+
 def isInventoryOpen():
     if myGui.locateOnScreen("./images/inventory.png", confidence = 0.9):
         print("Inventory is closed...")
@@ -20,3 +23,7 @@ def drop():
     cords = myGui.center(tuple)
     myGui.click(cords)
     print("dropped ore")
+
+def mine():
+    myGui.moveTo(rockCords[0],rockCords[1])
+    myGui.click()
